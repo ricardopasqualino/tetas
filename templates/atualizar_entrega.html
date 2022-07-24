@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<br>
+<div class='container'>
+    <h1>O Morador já retirou a entrega?</h1>
+    <div class="row">
+        <br>
+        <br>
+        <!-- Inicio do form -->
+        <div class="col-sm">
+            <form class='form' action="{% url 'Atualizar_entrega' entrega.id %}" method="POST">
+            {% csrf_token %}
+            <h4>Selecione quando realizar a entrega:</h4>
+            <li class="list-group-item">{{ form.status }}</li>
+            <br>
+            <button class='btn btn-outline-primary btn-sm' type='submit'>Atualizar</button>
+            </div>
+            <div class="row">
+                <ul class="list-group">
+                    <br>
+                    <h4>Informações da ordem de entrega</h4>
+                    <li class="list-group-item disabled">Última Atualização: {{ entrega.data_entrada }}</li>
+                    <li class="list-group-item disabled">Recebido por: {{ form.recebido_por }}</li>
+                    <li class="list-group-item disabled">Ordem de entrega: OE/{{ entrega.id }}</li>
+                    <li class="list-group-item disabled">Nota Fiscal ou Identificador: {{ form.nota_fiscal }}</li>
+                    <li class="list-group-item disabled">Apartamento/Casa: {{ form.casa }}</li>
+                    <li class="list-group-item disabled">Local de armazenagem: {{ form.modulo }}</li>
+                </ul>
+            </div>
+        </form>
+</div>
+{% endblock %}

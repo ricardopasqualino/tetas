@@ -1,0 +1,11 @@
+body {
+    background-color: black;
+  }
+
+  h1, p {
+      color:red;
+  }
+
+  menu {
+      background-color: red;
+  }

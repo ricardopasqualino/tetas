@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block main %} 
+<br>
+<div class="container">
+  <div class="row">
+
+    <!-- Título do formulário -->
+    <div class="w-100">
+      <h1>Chegou uma nova entrega? Avise o morador!</h1>
+      <p>Preencha os campos abaixo para cada nova entrega que chegar</p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <form action="{% url 'Entrega_nova' %}" method="post">
+        {% csrf_token %}
+
+
+
+        <!-- Número da Nota Fiscal -->
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Nota Fiscal / Identificador</label>
+          <input  type="text" class="form-control" id="exampleFormControlInput1" placeholder="Número o número" {{ form.nota_fiscal }}
+        </div>
+
+        <!-- Número da Casa -->
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Casa / Apartamento</label>
+          <select  type="text" class="form-control" id="exampleFormControlInput1" {{ form.casa }}
+        </div>
+
+        <!-- Prateleira -->
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Local armazenado</label>
+          <select  type="text" class="form-control" id="exampleFormControlInput1" {{ form.modulo }}
+        </div>
+
+        <!-- Funcionario -->
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Recebido por</label>
+          <select type="block" class="form-control" id="exampleFormControlInput1" {{ form.recebido_por }}
+        </div>
+        
+        <input class="btn btn-primary" type="submit" value="Incluir entrega">
+      </div>
+    </form>
+      </div>
+    </div>
+    
+</div>
+
+{% endblock %}

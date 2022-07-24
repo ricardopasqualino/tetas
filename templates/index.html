@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block main %} 
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <br>
+      <br>
+      <h1 class="title"> Simplificando o recebimento de entregas <br> no seu condomínio!</h1>
+      <br>
+      <p>Passo 1: Escolha uma das opções abaixo:</p>
+      <a href="{% url 'Nova' %}"><button type="button" class="btn btn-primary btn-lg">Cadastrar uma nova entrega</button></a>
+      <a href="{% url 'Entregas'  %}"><button type="button" class="btn btn-outline-dark btn-sm">Consultar entregas cadastradas</button></a>
+    </div>
+  <div class="col">
+  <br>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top margem-top" src="https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2F127.0.0.1%3A8000%2Fcadastro%2F&chs=180x180&choe=UTF-8&chld=L|2" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">
+            Aponte para a imagem acima para acessar o link de cadastro do morador.
+          </p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}

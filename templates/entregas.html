@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container">
+  <br>
+  <h1>Confira a lista de entregas</h1>
+  <br> 
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nº da OE</th>
+            <th scope="col">Última Atualização</th>
+            <th scope="col">Nota Fiscal</th>
+            <th scope="col">Morador</th>
+            <th scope="col">Prateleira</th>
+            <th scope="col">Responsável pela OE</th>
+            <th scope="col">Foi retirada?</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for entregas in entregas %}
+          <tr>
+            <td>OE/{{ entregas.id }}</td>
+            <td>{{ entregas.data_entrada }}</td>
+            <td>{{ entregas.nota_fiscal }}</td>
+            <td>{{ entregas.casa }}</td>
+            <td>{{ entregas.modulo }}</td>
+            <td>{{ entregas.recebido_por }}</td>
+            <td>
+              {% if entregas.status == False %}
+                <a class="btn btn-outline-danger" href="{% url 'Atualizar_entrega' entregas.id %}" {{ entregas.status }}>Não</a>
+              {% else %}
+                <a class="btn btn-outline-success" href="{% url 'Atualizar_entrega' entregas.id %}" {{ entregas.status }}>Sim</a>
+              {% endif %}
+              </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+
+{% endblock %}

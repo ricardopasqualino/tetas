@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="w-100">
+    
+        <!-- Mensagem de erro do form -->    
+        {% if form.errors %}
+            <p>Usuário ou senha inválido. Tente Novamente.</p>
+        {% endif %}
+        
+        <!-- Topo da página de login -->    
+        <h1>Insira o nome e a senha.</h1>
+        <p>Sempre acesse com a sua conta e nunca compartilhe a senha com o colega de trabalho.</p>
+
+    </div>
+
+    <!-- estrutura do formulário -->
+    <div class="container">
+        <div class="row">
+            <form class="form-group" method="post" action="{% url 'Login' %}">
+            
+            {% csrf_token %}
+
+            <div class="col-sm-">
+                <!-- Inclusão da item de usuário -->
+                <div class="form-group">
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Coloque seu nome" {{ form.username }}
+                </div>
+        
+                <!-- Inclusão do campo senha -->
+                <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Coloque sua senha" {{ form.password }}
+                </div>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Clique para entrar">
+        </div>
+    </div>
+
+    </form>
+<br>
+</div>
+</div>
+{% endblock %}

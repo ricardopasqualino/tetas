@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Crie sua conta{% endblock %}
+
+{% block main %}
+<div class="container pt-4">
+    <div class="col">
+        
+            <h4 class="display-5">
+                Preencha e envie os dados abaixo para criar a sua conta.
+            </h4>
+
+            <!--INICIO DO FORMULARIO-->
+
+            <form>
+                <input class="form-control" id="your_name" type="text" placeholder="Nome" name="your_name" maxlength="100" required>
+                {{ user.first_name }}
+            </form>
+            
+            <form>
+                <input class="form-control mt-3" id="your_name" type="text" placeholder="Sobrenome"name="your_name" maxlength="100" required>
+                {{ user.last_name }}
+            </form>
+        
+            <form>
+                <input class="form-control mt-3" id="your_name" type="email" placeholder="email" name="your_name" maxlength="100" required>
+                {{ user.email }}
+            </form>
+
+            <form>
+                <input class="form-control mt-3" id="your_name" type="text" placeholder="usuário" name="your_name" maxlength="100" required>
+                {{ user.login }}
+            </form>
+
+            <form>
+                <input class="form-control mt-3" id="your_name" type="text" placeholder="senha" name="your_name" maxlength="100" required>
+                {{ user.password }}
+            </form>
+
+            <form action="/" method="post">
+                {% csrf_token %}
+                <input class="btn btn-primary mt-3" type="submit" value="Enviar">
+            </form>
+        </div>
+</div>
+{% endblock %}
